@@ -10,7 +10,7 @@ COPY . /app
 
 # Install any necessary dependencies
 RUN apt-get update && \
-    apt-get install -y tesseract-ocr && \
+    apt-get install -y tesseract-ocr=5.3.1 && \
     rm -rf /var/lib/apt/lists/*
 
 # Install Python requirements

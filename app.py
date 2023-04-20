@@ -13,7 +13,7 @@ app = Flask(__name__)
 
 # Set the TESSDATA_PREFIX environment variable
 # Prior: os.environ["TESSDATA_PREFIX"] = "C:/Program Files/Tesseract-OCR/tessdata"
-os.environ["TESSDATA_PREFIX"] = "/usr/share/tesseract-ocr/tessdata"
+os.environ["TESSDATA_PREFIX"] = "/usr/share/tesseract-ocr/5.3.1/tessdata"
 
 # Initialize PyOCR and Googletrans
 tools = pyocr.get_available_tools()
@@ -82,19 +82,17 @@ def recognize_and_translate(image):
     # image_bw_pil.show()
 
     # Use PyOCR to recognize the characters
-    tools = pyocr.get_available_tools()
-    tool = tools[0]
     lang = 'jpn+eng'
     builder = pyocr.builders.LineBoxBuilder(tesseract_layout=6)
     builder.tesseract_configs.append('tessedit_char_whitelist=0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz')
-    line_boxes = tool.image_to_string(Image.fromarray(image_bw), lang=lang, builder=builder)
+    line_boxes = ocr_tool.image_to_string(Image.fromarray(image_bw), lang=lang, builder=builder)
 
     # Use Googletrans to translate the characters
     translations = {}
     for box in line_boxes:
         text = box.content
-        translation = translator.translate(text, dest="en")
-        translations[text] = translation.text
+        translation = translator.translate(text, dest="en").text
+        translations[text] = translation
 
     # Create a new image to draw the translated text
     font = ImageFont.truetype("arial.ttf", size=16)
