@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Kanji Recognition</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <h1>Optical Character Recognition</h1>
+    <h2 style="text-align:center">Upload an image containing Japanese text (kanji / hiragana / katakana)</h2>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+      <input type="file" name="file" accept="image/*">
+      <button type="submit">Upload</button>
+    </form>
+    <h2 style="text-align:center">Or, use this sample image:</h2>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <button type="submit" class="sample-image-btn">
+          <img src="{{ url_for('static', filename='sample_image.jpg') }}" width="300">
+        </button>
+    </form>
+  </body>
+</html>

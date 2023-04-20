@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Translation Result</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Translation Result</h1>
+    <div>
+        <img src="data:image/png;base64,{{ original_image }}" alt="Original Image">
+    </div>
+    <div>
+        <img src="data:image/png;base64,{{ updated_image }}" alt="Updated Image">
+    </div>    
+    <table>
+        <tr>
+            <th>Kanji/Hiragana/Katakana Text</th>
+            <th>Translation</th>
+        </tr>
+        {% for text, translation in translations.items() %}
+        <tr>
+            <td>{{ text }}</td>
+            <td>{{ translation }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
