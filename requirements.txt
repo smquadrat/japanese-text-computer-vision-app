@@ -4,7 +4,4 @@ numpy==1.21.6
 opencv_python==4.7.0.72
 Pillow==9.5.0
 pyocr==0.8.3
-<<<<<<< HEAD
 gunicorn==20.1.0
-=======
->>>>>>> b0a052f277721dae9677c08fd6cfe7c016d714f1
