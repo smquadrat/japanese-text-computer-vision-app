@@ -18,10 +18,10 @@ RUN apt-get update && \
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Set the TESSDATA_PREFIX environment variable
-ENV TESSDATA_PREFIX=/usr/share/tesseract-ocr/5/tessdata/
+ENV TESSDATA_PREFIX=/usr/share/tesseract-ocr/
 
-ADD https://github.com/tesseract-ocr/tessdata_best/jpn.traineddata /usr/share/tesseract-ocr/5/tessdata/jpn.traineddata
-ADD https://github.com/tesseract-ocr/tessdata_best/jpn_vert.traineddata /usr/share/tesseract-ocr/5/tessdata/jpn_vert.traineddata
+ADD https://github.com/tesseract-ocr/tessdata_best/jpn.traineddata /usr/share/tesseract-ocr/jpn.traineddata
+ADD https://github.com/tesseract-ocr/tessdata_best/jpn_vert.traineddata /usr/share/tesseract-ocr/jpn_vert.traineddata
 
 # Make port 8080 available to the world outside this container
 EXPOSE 8080
