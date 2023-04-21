@@ -13,7 +13,7 @@ app = Flask(__name__)
 
 # Set the TESSDATA_PREFIX environment variable
 # Prior: os.environ["TESSDATA_PREFIX"] = "C:/Program Files/Tesseract-OCR/tessdata"
-os.environ["TESSDATA_PREFIX"] = "/usr/share/tesseract-ocr/4.00/tessdata"
+os.environ["TESSDATA_PREFIX"] = "/usr/share/tesseract-ocr/5/tessdata"
 
 # Initialize PyOCR and Googletrans
 tools = pyocr.get_available_tools()
