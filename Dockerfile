@@ -10,7 +10,8 @@ COPY . /app
 
 # Install any necessary dependencies
 RUN apt-get update && \
-    apt-get install -y tesseract-ocr=5.3.1 && \
+    apt-get install -y tesseract-ocr && \
+    apt-get install -y libgl1-mesa-glx && \
     rm -rf /var/lib/apt/lists/*
 
 # Install Python requirements
