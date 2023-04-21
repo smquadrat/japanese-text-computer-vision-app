@@ -10,7 +10,7 @@ COPY . /app
 
 # Install any necessary dependencies
 RUN apt-get update && \
-    apt-get install -y tesseract-ocr && \
+    apt-get install -y tesseract-ocr tesseract-ocr-jpn && \
     apt-get install -y libgl1-mesa-glx && \
     rm -rf /var/lib/apt/lists/*
 
@@ -18,7 +18,7 @@ RUN apt-get update && \
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Set the TESSDATA_PREFIX environment variable
-ENV TESSDATA_PREFIX=/usr/share/tesseract-ocr/5.3.1/tessdata/
+ENV TESSDATA_PREFIX=/usr/share/tesseract-ocr/tessdata/
 
 # Make port 8080 available to the world outside this container
 EXPOSE 8080
