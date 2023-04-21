@@ -1,4 +1,4 @@
-# japanese-text-computer-vision-app
+# Japanese Text OCR Scanner
 
 This Flask app enables users to upload an image containing Japanese text (kanji, hiragana or katakana) and receive an output of the image with overlaid English translations along with a table containing raw input text and translated output text. The app utilizes the OpenCV Python library to preprocess uploaded images, the Tesseract OCR (optical character recognition) computer vision engine via the PyOCR Python wrapper to identify Japanese text and the Google Translate api to translate to English. A sample image is provided for illustrative purposes.
 
